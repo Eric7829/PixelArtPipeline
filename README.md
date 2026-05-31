@@ -5,10 +5,10 @@ PixelArtPipeline converts raster images into optimized Lua tables compatible wit
 
 When utilizing the CIELAB color space pipeline under standard studio lighting conditions, the algorithm achieves near-flawless color quantization and gradient blending, even within a highly restricted block palette.
 
-| Original Splash Art | BedWars In-Game Output (512x512) |
+| Original Image | BedWars In-Game Output (512x512 Blocks) |
 | :---: | :---: |
 | <img src="https://github.com/user-attachments/assets/ad18382c-1ab8-418b-8c2f-a8d9b9564a7f" alt="Character_Ruan_Mei_Splash_Art" width="400"/> | <img src="https://github.com/user-attachments/assets/c578cd49-d4b1-4e39-865e-8bdde36cf32e" alt="RobloxScreenShot20260531_150916276" width="400"/> |
-| **Source:** Honkai: Star Rail character asset. | **Result:** Exceptional preservation of skin tones, complex dress gradients, and micro-details via Floyd-Steinberg dithering. |
+| **Source:** Honkai: Star Rail character splash art. | **Result:** Exceptional preservation of skin tones, complex dress gradients, and micro-details via Floyd-Steinberg dithering. |
 
 ## Highlights
 - Perceptually-accurate color matching using the CIELAB color space and Delta E metrics (supports CIE76/CIEDE2000)
