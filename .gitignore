@@ -1,5 +1,10 @@
 .vscode
-src/input.png
-src/input.jpg
-src/output.lua
 src/tempCodeRunnerFile.py
+src/output.lua
+# Ignore common image file types
+*.png
+*.PNG
+*.jpg
+*.JPG
+*.jpeg
+*.JPEG

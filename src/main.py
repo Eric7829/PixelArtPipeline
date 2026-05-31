@@ -56,14 +56,36 @@ BLOCK_RGB_CACHE = {block_id: hex_to_rgb(hex_color) for block_id, (name, hex_colo
 BLOCK_RGB_ARRAY = np.array([BLOCK_RGB_CACHE[i] for i in sorted(BLOCK_RGB_CACHE.keys())])
 BLOCK_IDS = np.array(sorted(BLOCK_RGB_CACHE.keys()))
 
-def find_closest_blocks_vectorized(img_rgb):
-    """Find the closest block for all pixels using vectorized operations."""
+# Pre-compute YUV values for luminance-first matching
+# Reshape to (1, N, 3) for cvtColor, then back to (N, 3)
+_block_rgb_reshaped = BLOCK_RGB_ARRAY.reshape(1, -1, 3).astype(np.uint8)
+BLOCK_YUV_ARRAY = cv2.cvtColor(_block_rgb_reshaped, cv2.COLOR_RGB2YUV).reshape(-1, 3).astype(np.float32)
+# Pre-compute LAB values for CIELAB matching
+BLOCK_LAB_ARRAY = cv2.cvtColor(_block_rgb_reshaped, cv2.COLOR_RGB2Lab).reshape(-1, 3).astype(np.float32)
+
+def find_closest_blocks_vectorized(img_rgb, use_cielab=False):
+    """Find the closest block for all pixels using vectorized operations.
+    If use_cielab is True, uses Euclidean distance in CIELAB space.
+    Otherwise, matches Luminance (Y) first, then breaks ties with Chroma (UV).
+    """
     height, width, _ = img_rgb.shape
     
-    # Reshape image to (num_pixels, 3)
-    pixels_flat = img_rgb.reshape(-1, 3)
+    if use_cielab:
+        # Convert image to LAB
+        img_converted = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2Lab)
+        target_array = BLOCK_LAB_ARRAY
+        # Standard Euclidean distance in LAB (Delta E 76)
+        weights = np.array([1.0, 1.0, 1.0], dtype=np.float32)
+    else:
+        # Convert image to YUV
+        img_converted = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2YUV)
+        target_array = BLOCK_YUV_ARRAY
+        # Weights for Y, U, V. Y is weighted heavily to prioritize luminance.
+        weights = np.array([1000000.0, 1.0, 1.0], dtype=np.float32)
+    
+    # Reshape image to (num_pixels, 3) and convert to float for calculations
+    pixels_flat = img_converted.reshape(-1, 3).astype(np.float32)
     num_pixels = pixels_flat.shape[0]
-    num_blocks = BLOCK_RGB_ARRAY.shape[0]
     
     closest_blocks = np.zeros(num_pixels, dtype=int)
     
@@ -78,15 +100,15 @@ def find_closest_blocks_vectorized(img_rgb):
             print(f"Processing... {progress}%")
         
         # Vectorized distance calculation using broadcasting
-        # chunk_pixels: (chunk_size, 3), BLOCK_RGB_ARRAY: (num_blocks, 3)
+        # chunk_pixels: (chunk_size, 3), target_array: (num_blocks, 3)
         # diff: (chunk_size, num_blocks, 3)
-        diff = chunk_pixels[:, np.newaxis, :] - BLOCK_RGB_ARRAY[np.newaxis, :, :]
+        diff = chunk_pixels[:, np.newaxis, :] - target_array[np.newaxis, :, :]
         
-        # Calculate Euclidean distances: (chunk_size, num_blocks)
-        distances = np.sqrt(np.sum(diff ** 2, axis=2))
+        # Weighted squared Euclidean distance
+        weighted_dist_sq = np.sum((diff ** 2) * weights, axis=2)
         
         # Find closest block for each pixel
-        closest_blocks[chunk_start:chunk_end] = BLOCK_IDS[np.argmin(distances, axis=1)]
+        closest_blocks[chunk_start:chunk_end] = BLOCK_IDS[np.argmin(weighted_dist_sq, axis=1)]
     
     return closest_blocks.reshape(height, width)
 
@@ -127,7 +149,7 @@ def apply_edge_overlay(block_array, img_gray, clay_black_id=22, threshold1=100, 
 
     return block_array
 
-def convert_image_to_blocks(input_path, output_path, add_outlines=False, blur_level="off"):
+def convert_image_to_blocks(input_path, output_path, add_outlines=False, blur_level="off", use_cielab=False):
     """Convert image to 2D array of block indexes.
     
     Args:
@@ -135,6 +157,7 @@ def convert_image_to_blocks(input_path, output_path, add_outlines=False, blur_le
         output_path: Path to output Lua file
         add_outlines: Whether to add black outlines using Canny edge detection
         blur_level: Blur level - "off", "weak", "medium", or "strong"
+        use_cielab: Whether to use CIELAB color space for matching
     """
     # Read the image
     img = cv2.imread(input_path)
@@ -163,8 +186,8 @@ def convert_image_to_blocks(input_path, output_path, add_outlines=False, blur_le
     print(f"Processing {width}x{height} image...")
     
     # Convert all pixels at once using vectorized operations
-    print("Finding closest blocks for all pixels...")
-    block_array = find_closest_blocks_vectorized(img_rgb)
+    print(f"Finding closest blocks for all pixels (CIELAB={use_cielab})...")
+    block_array = find_closest_blocks_vectorized(img_rgb, use_cielab=use_cielab)
     
     # Apply edge overlay if requested
     if add_outlines:
@@ -188,17 +211,18 @@ def convert_image_to_blocks(input_path, output_path, add_outlines=False, blur_le
 if __name__ == "__main__":
 
     # Allow reading both PNG and JPG/JPEG files
-    input_image = "src/input.png"  # Change this to "src/input.jpg" or "src/input.jpeg" if needed
+    input_image = "src/Baldrat.png"  # Change this to "src/input.jpg" or "src/input.jpeg" if needed
     output_file = "src/output.lua"
     add_outlines = False  # Set to True to add black outlines using Canny edge detection
     blur_level = "off"  # Options: "off", "weak", "medium", "strong" - applies BEFORE edge detection
+    use_cielab = True # Set to True to use CIELAB color matching (slower but more accurate color perception)
     
     # Check file extension
     if not input_image.lower().endswith(('.png', '.jpg', '.jpeg')):
         print("Error: Unsupported file format. Please use PNG, JPG, or JPEG.")
         exit()
-
-    result = convert_image_to_blocks(input_image, output_file, add_outlines, blur_level)
+    
+    result = convert_image_to_blocks(input_image, output_file, add_outlines, blur_level, use_cielab)
     
     if result is not None:
         print(f"\nOutput is a {result.shape[0]}x{result.shape[1]} array")

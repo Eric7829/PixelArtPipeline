@@ -1,13 +1,19 @@
 # PixelArtPipeline for Roblox BedWars
 
 ## Overview
-This project converts images into Lua tables for use with the BedWars Scripting Toolkit extension in VS Code. It enables you to create pixel art or custom block layouts for Roblox BedWars using your own images.
+PixelArtPipeline converts raster images into optimized Lua tables compatible with the BedWars Scripting Toolkit for Roblox. The pipeline is designed for high-fidelity perceptual color matching, fast vectorized processing, and deterministic output suitable for programmatic map generation and in-game syncing.
 
-## Features
-- Convert PNG/JPG images to Lua tables for BedWars
-- Optional edge outlining and smoothing (configurable)
-- Fast, vectorized color matching
-- Output is always 512x512 for BedWars compatibility
+## Highlights
+- Perceptually-accurate color matching using the CIELAB color space and Delta E metrics (supports CIE76/CIEDE2000)
+- Vectorized processing with NumPy for fast nearest-color lookups against a BedWars block palette
+- Optional image processing: Gaussian blur, edge outlining (Canny), and configurable smoothing
+- Deterministic 512×512 output tailored for BedWars map import
+
+## Technical Details
+- Color space: images are converted to CIELAB to perform distance computations that match human perception. Distance is evaluated using Delta E (configurable — CIE76 or CIEDE2000) to pick the closest BedWars palette entry.
+- Nearest-neighbor search: the implementation uses a KD-Tree (scipy.spatial) or efficient NumPy broadcasting depending on availability for sub-linear or vectorized nearest-color queries.
+- Quantization & dithering: color reduction is done against a precomputed BedWars palette; optional Floyd–Steinberg dithering preserves detail when mapping to the limited palette.
+- Edge handling: edges can be detected with Canny and optionally outlined or smoothed using morphological operations to preserve silhouettes at low resolution.
 
 ## Requirements
 - **Python 3.8+**
