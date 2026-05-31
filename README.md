@@ -1,7 +1,7 @@
 ### Overview
 **PixelArtPipeline** converts high-fidelity raster images into optimized Luau tables compatible with the **BedWars Scripting Toolkit** for Roblox. 
 
-The core engineering challenge of this project is extreme color constraint optimization: mapping complex, smooth digital artwork onto a highly restrictive palette of **only 39 available in-game blocks**. Other blocks within the game asset pool feature multi-color noise textures, making them entirely unsuitable for clean color quantization. By leveraging the CIELAB color space, Delta E perceptual distance metrics, and error-diffusion dithering, the pipeline achieves exceptional color quantization and deterministic output tailored for programmatic, in-game map generation.
+The core engineering challenge of this project is extreme color constraint optimization: mathematically mapping standard 24-bit True Color images (16,777,216 possible colors) down to a highly restrictive palette of only 39 available in-game blocks—**representing a 99.9997% reduction in raw color data**. Other blocks within the game asset pool feature multi-color noise textures, making them entirely unsuitable for clean color quantization. To prevent this massive compression from destroying image fidelity, the pipeline rejects naïve RGB distance formulas in favor of the CIELAB color space, using Delta E perceptual distance metrics and Floyd-Steinberg error-diffusion dithering. This achieves exceptional color quantization and deterministic output tailored for programmatic, in-game map generation.
 
 ### Gallery: High-Fidelity Perceptual Mapping (CIELAB)
 
