@@ -1,3 +1,4 @@
+
 # PixelArtPipeline
 
 <p align="center">
@@ -27,7 +28,7 @@ When utilizing standard studio-lit character art, the CIELAB pipeline achieves f
 
 | Original Splash Art | BedWars In-Game Output (512x512 Blocks) |
 | :---: | :---: |
-| <img width="1024" height="1024" alt="RM Splash art" src="https://github.com/user-attachments/assets/2259cbf4-5db8-4dcf-993e-00796ba9de46" />| <img src="https://github.com/user-attachments/assets/c578cd49-d4b1-4e39-865e-8bdde36cf32e" alt="RobloxScreenShot_Ruan_Mei" width="400"/> |
+| <img width="1024" height="1024" alt="RM Splash art" src="https://github.com/user-attachments/assets/2259cbf4-5db8-4dcf-993e-00796ba9de46" />| <img width="1012" height="1000" alt="Cropped bw" src="https://github.com/user-attachments/assets/d40ccfc8-f52d-41aa-bcc0-1f93a283f456" /> |
 | **Source:** Ruan Mei Splash Art from *Honkai: Star Rail*  | **Result:** Exceptional preservation of delicate skin tones, complex dress gradients, and wood textures via Floyd-Steinberg dithering. |
 
 ---
@@ -37,7 +38,8 @@ Unlike flat digital art, real-world photographs contain infinite analog gradient
 
 | Original Photograph | BedWars In-Game Output (512x512 Blocks) |
 | :---: | :---: |
-| <img src="https://upload.wikimedia.org/wikipedia/en/b/b4/Sharbat_Gula.jpg" alt="Afghan_Girl_Original" width="400"/> | <img width="1920" height="1080" alt="RobloxScreenShot20260531_155520536" src="https://github.com/user-attachments/assets/c05fcf4f-bd5c-4c78-8565-fbb80beb8eae" /> |
+| <img src="https://upload.wikimedia.org/wikipedia/en/b/b4/Sharbat_Gula.jpg" alt="Afghan_Girl_Original" width="400"/> | <img width="484" height="746" alt="Afghan Girl" src="https://github.com/user-attachments/assets/52062937-5753-4a61-8633-ebc565eeccfa" />
+ |
 | **Source:** *Afghan Girl* by Steve McCurry (1984). | **Result:** Immaculate separation of complementary colors (terracotta red vs. sea-green) and crisp retention of the iconic iris color. |
 
 
