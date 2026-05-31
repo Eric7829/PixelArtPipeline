@@ -1,3 +1,4 @@
+<img width="1024" height="1024" alt="RM Splash art" src="https://github.com/user-attachments/assets/2259cbf4-5db8-4dcf-993e-00796ba9de46" />
 ## Overview
 **PixelArtPipeline** converts high-fidelity raster images into optimized Luau tables compatible with the **BedWars Scripting Toolkit** for Roblox. 
 
@@ -12,7 +13,7 @@ When utilizing standard studio-lit character art, the CIELAB pipeline achieves f
 
 | Original Splash Art | BedWars In-Game Output (512x512 Blocks) |
 | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/ad18382c-1ab8-418b-8c2f-a8d9b9564a7f" alt="Character_Ruan_Mei_Splash_Art" width="400"/> | <img src="https://github.com/user-attachments/assets/c578cd49-d4b1-4e39-865e-8bdde36cf32e" alt="RobloxScreenShot_Ruan_Mei" width="400"/> |
+| <img width="1024" height="1024" alt="RM Splash art" src="https://github.com/user-attachments/assets/2259cbf4-5db8-4dcf-993e-00796ba9de46" />| <img src="https://github.com/user-attachments/assets/c578cd49-d4b1-4e39-865e-8bdde36cf32e" alt="RobloxScreenShot_Ruan_Mei" width="400"/> |
 | **Source:** Ruan Mei Splash Art from *Honkai: Star Rail*  | **Result:** Exceptional preservation of delicate skin tones, complex dress gradients, and wood textures via Floyd-Steinberg dithering. |
 
 ---
