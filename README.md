@@ -5,7 +5,7 @@ The core engineering challenge of this project is extreme color constraint optim
 
 ### Gallery: High-Fidelity Perceptual Mapping (CIELAB)
 
-The following showcases demonstrate how the pipeline handles drastically different asset styles—from stylized game illustration to historic photo-journalism—using just 39 types of blocks
+The following showcases demonstrate how the pipeline handles different asset styles: from stylized game illustration to historic photo-journalism—using just 39 types of blocks.
 
 #### Test Case 1: Stylized Game Art (Digital Illustration)
 When utilizing standard studio-lit character art, the CIELAB pipeline achieves flawless color quantization and smooth gradient transitions without muddying distinct hues.
