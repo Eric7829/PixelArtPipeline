@@ -7,7 +7,8 @@ When utilizing the CIELAB color space pipeline under standard studio lighting co
 
 | Original Splash Art | BedWars In-Game Output (512x512) |
 | :---: | :---: |
-| ![Ruan Mei Original](<img width="1000" height="1000" alt="Character_Ruan_Mei_Splash_Art" src="https://github.com/user-attachments/assets/5d92d5c5-ab86-4355-8142-fd663c375c9f" />) | ![Ruan Mei BedWars](<img width="1920" height="1080" alt="RobloxScreenShot20260531_150916276" src="https://github.com/user-attachments/assets/c578cd49-d4b1-4e39-865e-8bdde36cf32e" />
+| ![Ruan Mei Original](<img width="1000" height="1000" alt="Character_Ruan_Mei_Splash_Art" src="https://github.com/user-attachments/assets/ad18382c-1ab8-418b-8c2f-a8d9b9564a7f" />
+) | ![Ruan Mei BedWars](<img width="1920" height="1080" alt="RobloxScreenShot20260531_150916276" src="https://github.com/user-attachments/assets/c578cd49-d4b1-4e39-865e-8bdde36cf32e" />
 ) |
 | **Source:** Honkai: Star Rail character asset. | **Result:** Exceptional preservation of skin tones, complex dress gradients, and micro-details via Floyd-Steinberg dithering. |
 
