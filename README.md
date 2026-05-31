@@ -38,7 +38,7 @@ Unlike flat digital art, real-world photographs contain infinite analog gradient
 
 | Original Photograph | BedWars In-Game Output (512x512 Blocks) |
 | :---: | :---: |
-| <img src="https://upload.wikimedia.org/wikipedia/en/b/b4/Sharbat_Gula.jpg" alt="Afghan_Girl_Original" width="400"/> | <img width="484" height="746" alt="Afghan Girl" src="https://github.com/user-attachments/assets/52062937-5753-4a61-8633-ebc565eeccfa" />|
+| <img src="https://upload.wikimedia.org/wikipedia/en/b/b4/Sharbat_Gula.jpg" alt="Afghan_Girl_Original" width="400"/> | <img width="400" height="617" alt="Afghan Girl" src="https://github.com/user-attachments/assets/52062937-5753-4a61-8633-ebc565eeccfa" />|
 | **Source:** *Afghan Girl* by Steve McCurry (1984). | **Result:** Immaculate separation of complementary colors (terracotta red vs. sea-green) and crisp retention of the iconic iris color. |
 
 
