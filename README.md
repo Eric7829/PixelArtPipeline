@@ -1,5 +1,4 @@
-<img width="1024" height="1024" alt="RM Splash art" src="https://github.com/user-attachments/assets/2259cbf4-5db8-4dcf-993e-00796ba9de46" />
-## Overview
+### Overview
 **PixelArtPipeline** converts high-fidelity raster images into optimized Luau tables compatible with the **BedWars Scripting Toolkit** for Roblox. 
 
 The core engineering challenge of this project is extreme color constraint optimization: mapping complex, smooth digital artwork onto a highly restrictive palette of **only 39 available in-game blocks**. Other blocks within the game asset pool feature heavy surface patterning and multi-color noise textures, making them entirely unsuitable for clean color quantization. By leveraging the CIELAB color space, Delta E perceptual distance metrics, and error-diffusion dithering, the pipeline achieves exceptional color quantization and deterministic output tailored for programmatic, in-game map generation.
