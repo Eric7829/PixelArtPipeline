@@ -70,7 +70,11 @@ The pipeline is highly optimized for fast, local execution, capable of processin
 ## Usage
 Run the script from the project root:
 ```sh
-python src/main.py
+# Basic usage
+python src/main.py -i custom_image.jpg -o output.lua
+
+# Advanced usage (enable dithering and Canny edge detection)
+python src/main.py -i custom_image.jpg --dither --edge-outlines
 ```
 
 - Configure options (edge outlining, blur level) at the top of `main.py`.
