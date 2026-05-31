@@ -1,3 +1,18 @@
+# PixelArtPipeline
+
+<p align="center">
+  <img width="300" height="300" alt="2d73e99772fd449798041808e0f3317a" src="https://github.com/user-attachments/assets/b7a71e60-caab-4a84-b9a2-4443a30cadc9" />
+  <img width="948" height="879" alt="image" src="https://github.com/user-attachments/assets/19e2155d-a6c7-46e7-b635-ed2b7be045cb" />
+
+</p>
+
+<p align="center">
+  <strong>From 16.7 Million Colors down to 39 in-game assets.</strong> 
+  <br />
+  Left: Original 24-bit photo | Right: Deterministic 512×512 Luau-compatible output utilizing CIELAB perceptual mapping.
+</p>
+
+
 ### Overview
 **PixelArtPipeline** converts high-fidelity raster images into optimized Luau tables compatible with the **BedWars Scripting Toolkit** for Roblox. 
 
