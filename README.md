@@ -1,11 +1,11 @@
 ### Overview
 **PixelArtPipeline** converts high-fidelity raster images into optimized Luau tables compatible with the **BedWars Scripting Toolkit** for Roblox. 
 
-The core engineering challenge of this project is extreme color constraint optimization: mapping complex, smooth digital artwork onto a highly restrictive palette of **only 39 available in-game blocks**. Other blocks within the game asset pool feature heavy surface patterning and multi-color noise textures, making them entirely unsuitable for clean color quantization. By leveraging the CIELAB color space, Delta E perceptual distance metrics, and error-diffusion dithering, the pipeline achieves exceptional color quantization and deterministic output tailored for programmatic, in-game map generation.
+The core engineering challenge of this project is extreme color constraint optimization: mapping complex, smooth digital artwork onto a highly restrictive palette of **only 39 available in-game blocks**. Other blocks within the game asset pool feature multi-color noise textures, making them entirely unsuitable for clean color quantization. By leveraging the CIELAB color space, Delta E perceptual distance metrics, and error-diffusion dithering, the pipeline achieves exceptional color quantization and deterministic output tailored for programmatic, in-game map generation.
 
 ### Gallery: High-Fidelity Perceptual Mapping (CIELAB)
 
-The following showcases demonstrate how the pipeline handles drastically different asset styles—from stylized game illustration to historic photo-journalism—using the exact same optimized 39-block palette constraint.
+The following showcases demonstrate how the pipeline handles drastically different asset styles—from stylized game illustration to historic photo-journalism—using just 39 types of blocks
 
 #### Test Case 1: Stylized Game Art (Digital Illustration)
 When utilizing standard studio-lit character art, the CIELAB pipeline achieves flawless color quantization and smooth gradient transitions without muddying distinct hues.
