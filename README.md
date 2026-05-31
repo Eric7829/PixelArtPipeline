@@ -36,7 +36,7 @@ When utilizing standard studio-lit character art, the CIELAB pipeline achieves f
 #### Test Case 2: Real-World Photograph (Complex Human Features)
 Unlike flat digital art, real-world photographs contain infinite analog gradients and micro-textures. This test demonstrates the algorithm's capability to retain dramatic atmospheric lighting and critical human facial details under extreme palette compression.
 
-| Original Photograph | BedWars In-Game Output (512x512 Blocks) |
+| Original Photograph | BedWars In-Game Output (512x512 Blocks, cropped Whitespace out) |
 | :---: | :---: |
 | <img src="https://upload.wikimedia.org/wikipedia/en/b/b4/Sharbat_Gula.jpg" alt="Afghan_Girl_Original" width="400"/> | <img width="260" height="400" alt="Afghan Girl" src="https://github.com/user-attachments/assets/52062937-5753-4a61-8633-ebc565eeccfa" />|
 | **Source:** *Afghan Girl* by Steve McCurry (1984). | **Result:** Immaculate separation of complementary colors (terracotta red vs. sea-green) and crisp retention of the iconic iris color. |
