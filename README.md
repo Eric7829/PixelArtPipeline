@@ -5,12 +5,26 @@ The core engineering challenge of this project is extreme color constraint optim
 
 ### Gallery: High-Fidelity Perceptual Mapping (CIELAB)
 
-When utilizing the CIELAB color space pipeline under standard studio lighting conditions, the algorithm achieves near-flawless color quantization and gradient blending, even within a highly restricted block palette.
+The following showcases demonstrate how the pipeline handles drastically different asset styles—from stylized game illustration to historic photo-journalism—using the exact same optimized 39-block palette constraint.
 
-| Original Image | BedWars In-Game Output (512x512 Blocks) |
+#### Test Case 1: Stylized Game Art (Digital Illustration)
+When utilizing standard studio-lit character art, the CIELAB pipeline achieves flawless color quantization and smooth gradient transitions without muddying distinct hues.
+
+| Original Splash Art | BedWars In-Game Output (512x512) |
 | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/ad18382c-1ab8-418b-8c2f-a8d9b9564a7f" alt="Character_Ruan_Mei_Splash_Art" width="400"/> | <img src="https://github.com/user-attachments/assets/c578cd49-d4b1-4e39-865e-8bdde36cf32e" alt="RobloxScreenShot20260531_150916276" width="400"/> |
-| **Source:** Honkai: Star Rail character splash art. | **Result:** Exceptional preservation of skin tones, complex dress gradients, and micro-details via Floyd-Steinberg dithering. |
+| <img src="https://github.com/user-attachments/assets/ad18382c-1ab8-418b-8c2f-a8d9b9564a7f" alt="Character_Ruan_Mei_Splash_Art" width="400"/> | <img src="https://github.com/user-attachments/assets/c578cd49-d4b1-4e39-865e-8bdde36cf32e" alt="RobloxScreenShot_Ruan_Mei" width="400"/> |
+| **Source:** *Honkai: Star Rail* character asset. | **Result:** Exceptional preservation of delicate skin tones, complex dress gradients, and wood textures via Floyd-Steinberg dithering. |
+
+---
+
+#### Test Case 2: Real-World Photograph (Complex Human Features)
+Unlike flat digital art, real-world photographs contain infinite analog gradients and micro-textures. This test demonstrates the algorithm's capability to retain dramatic atmospheric lighting and critical human facial details under extreme palette compression.
+
+| Original Photograph | BedWars In-Game Output (512x512) |
+| :---: | :---: |
+| <img src="https://upload.wikimedia.org/wikipedia/en/b/b4/Sharbat_Gula.jpg" alt="Afghan_Girl_Original" width="400"/> | <img width="1920" height="1080" alt="RobloxScreenShot20260531_155520536" src="https://github.com/user-attachments/assets/c05fcf4f-bd5c-4c78-8565-fbb80beb8eae" /> |
+| **Source:** *Afghan Girl* by Steve McCurry (1984). | **Result:** Immaculate separation of complementary colors (terracotta red vs. sea-green) and crisp retention of the iconic iris color. |
+
 
 ## Highlights
 - Perceptually-accurate color matching using the CIELAB color space and Delta E metrics (supports CIE76/CIEDE2000)
