@@ -1,5 +1,5 @@
-
-
+## Overview
+PixelArtPipeline converts raster images into optimized Lua tables compatible with the BedWars Scripting Toolkit for Roblox. The pipeline is designed for high-fidelity perceptual color matching, fast vectorized processing, and deterministic output suitable for programmatic map generation and in-game syncing.
 
 ### Gallery: High-Fidelity Perceptual Mapping (CIELAB)
 
@@ -7,14 +7,8 @@ When utilizing the CIELAB color space pipeline under standard studio lighting co
 
 | Original Splash Art | BedWars In-Game Output (512x512) |
 | :---: | :---: |
-| ![Ruan Mei Original] <img width="1000" height="1000" alt="Character_Ruan_Mei_Splash_Art" src="https://github.com/user-attachments/assets/ad18382c-1ab8-418b-8c2f-a8d9b9564a7f" />
- | ![Ruan Mei BedWars]<img width="1920" height="1080" alt="RobloxScreenShot20260531_150916276" src="https://github.com/user-attachments/assets/c578cd49-d4b1-4e39-865e-8bdde36cf32e" />
- |
+| <img src="https://github.com/user-attachments/assets/ad18382c-1ab8-418b-8c2f-a8d9b9564a7f" alt="Character_Ruan_Mei_Splash_Art" width="400"/> | <img src="https://github.com/user-attachments/assets/c578cd49-d4b1-4e39-865e-8bdde36cf32e" alt="RobloxScreenShot20260531_150916276" width="400"/> |
 | **Source:** Honkai: Star Rail character asset. | **Result:** Exceptional preservation of skin tones, complex dress gradients, and micro-details via Floyd-Steinberg dithering. |
-
-
-## Overview
-PixelArtPipeline converts raster images into optimized Lua tables compatible with the BedWars Scripting Toolkit for Roblox. The pipeline is designed for high-fidelity perceptual color matching, fast vectorized processing, and deterministic output suitable for programmatic map generation and in-game syncing.
 
 ## Highlights
 - Perceptually-accurate color matching using the CIELAB color space and Delta E metrics (supports CIE76/CIEDE2000)
