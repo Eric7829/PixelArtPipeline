@@ -9,7 +9,7 @@
 <p align="center">
   <strong>From 16.7 Million Colors down to 39 in-game assets.</strong> 
   <br />
-  Left: Original 24-bit photo | Right: Deterministic 512×512 Luau-compatible output utilizing CIELAB perceptual mapping.
+  Left: Original 24-bit photo | Right: Roblox Bedwars Render utilizing CIELAB perceptual mapping.
 </p>
 
 
