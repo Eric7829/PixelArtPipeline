@@ -1,4 +1,16 @@
-# PixelArtPipeline for Roblox BedWars
+<img width="2048" height="2048" alt="RM Splash art" src="https://github.com/user-attachments/assets/66549a10-6102-4a58-a9b7-31b42661f8a1" /># PixelArtPipeline for Roblox BedWars
+
+
+### Gallery: High-Fidelity Perceptual Mapping (CIELAB)
+
+When utilizing the CIELAB color space pipeline under standard studio lighting conditions, the algorithm achieves near-flawless color quantization and gradient blending, even within a highly restricted block palette.
+
+| Original Splash Art | BedWars In-Game Output (512x512) |
+| :---: | :---: |
+| ![Ruan Mei Original](<img width="1000" height="1000" alt="Character_Ruan_Mei_Splash_Art" src="https://github.com/user-attachments/assets/5d92d5c5-ab86-4355-8142-fd663c375c9f" />) | ![Ruan Mei BedWars](<img width="1920" height="1080" alt="RobloxScreenShot20260531_150916276" src="https://github.com/user-attachments/assets/c578cd49-d4b1-4e39-865e-8bdde36cf32e" />
+) |
+| **Source:** Honkai: Star Rail character asset. | **Result:** Exceptional preservation of skin tones, complex dress gradients, and micro-details via Floyd-Steinberg dithering. |
+
 
 ## Overview
 PixelArtPipeline converts raster images into optimized Lua tables compatible with the BedWars Scripting Toolkit for Roblox. The pipeline is designed for high-fidelity perceptual color matching, fast vectorized processing, and deterministic output suitable for programmatic map generation and in-game syncing.
